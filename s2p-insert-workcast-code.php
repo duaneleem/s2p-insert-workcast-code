@@ -65,10 +65,10 @@ if (!class_exists("StpInsertCustomCode")) {
   /*
    * Executes S2P Insert WorkCast Code plugin.
    */
-  function runWorkCastCode() {
+  function runWorkCastCode($postID) {
     require plugin_dir_path( __FILE__ ) . 'library/PageTemplater.php';
-    new StpInsertCustomCode(2);
+    new StpInsertCustomCode($postID);
   }
-  runWorkCastCode();
+  runWorkCastCode(2);
 } // if
 
