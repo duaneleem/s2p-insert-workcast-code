@@ -4,7 +4,7 @@
  * Description: WorkCast default template.
  */
 
- ?>
+get_header(); ?>
 
 <div id="workcast_embed_content_wrapper">
   <div id="workcast_embed_content">
@@ -294,3 +294,5 @@
     </div>
   </div>
 </div>
+
+<?php get_footer();
