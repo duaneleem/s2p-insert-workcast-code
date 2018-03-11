@@ -14,7 +14,7 @@
  * @wordpress-plugin
  * Plugin Name:       S2P Insert WorkCast Code
  * Plugin URI:        https://github.com/duaneleem/s2p-insert-workcast-code
- * Description:       Adds a WorkCast Theme page to WordPress.
+ * Description:       Turns any page to a WorkCast page.
  * Version:           1.0.0
  * Author:            Duane Leem
  * Author URI:        https://duaneleem.com
@@ -30,9 +30,10 @@ if ( ! defined( 'WPINC' ) ) { die; }
 /*
   * Executes S2P Insert WorkCast Code plugin.
   */
-function runWorkCastCode($postID) {
+function runWorkCastCode() {
   require plugin_dir_path( __FILE__ ) . 'library/PageTemplater.php';
+
   require plugin_dir_path( __FILE__ ) . 'library/StpInjectAssets.php';
-  new StpInjectAssets($postID);
+  new StpInjectAssets();
 }
-runWorkCastCode(2);
+runWorkCastCode();
