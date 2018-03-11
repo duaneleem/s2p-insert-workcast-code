@@ -1,0 +1,65 @@
+<?php
+/**
+ * The plugin bootstrap file
+ *
+ * This file is read by WordPress to generate the plugin information in the plugin
+ * admin area. This file also includes all of the dependencies used by the plugin,
+ * registers the activation and deactivation functions, and defines a function
+ * that starts the plugin.
+ *
+ * @link              https://duaneleem.com
+ * @since             1.0.0
+ * @package           S2P_Insert_WorkCast_Code
+ *
+ * @wordpress-plugin
+ * Plugin Name:       S2P Insert WorkCast Code
+ * Plugin URI:        https://github.com/duaneleem/s2p-insert-workcast-code
+ * Description:       This enables S2P to use WorkCast on the website.
+ * Version:           1.0.0
+ * Author:            Duane Leem
+ * Author URI:        https://duaneleem.com
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain:       s2p-insert-workcast-code
+ * Domain Path:       /languages
+ */
+
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+} // if
+
+if (!class_exists("StpInsertCustomCode")) {
+  class StpInsertCustomCode {
+    function __construct() {
+      add_action( 'wp_enqueue_scripts', array($this, "registerWorkCastStyles") );
+    } // __construct()
+
+    /*
+     * Registers WorkCast to <head> to a specific post/page.
+     */
+    function registerWorkCastStyles() {
+      // Change the post ID to the post needing WorkCast.
+      $postID = 2;
+
+      if(is_page($postID)) {
+        // Disable the built in jquery.
+        wp_deregister_script('jquery');
+        
+        // Use WorkCast preferred jquery.
+        wp_enqueue_script( "jquery", "https://607c5dc4c1541a604b6a-f45dce0462984165c96c36581d3ab586.ssl.cf1.rackcdn.com/jquery.1.6.2.min.js", array(), null, true );
+
+        wp_enqueue_script( "workcast-jquery-ui", "https://fe6fb6b85d6334307b13-496a2897963cd528a3555dcf427cda5c.ssl.cf1.rackcdn.com/workcast-jquery-ui-1.11.4.min.js", array("jquery") );
+        wp_enqueue_script( "querytools", "https://607c5dc4c1541a604b6a-f45dce0462984165c96c36581d3ab586.ssl.cf1.rackcdn.com/jquery.tools.1.2.6.min.js", array("jquery") );
+        wp_enqueue_script( "workcastchm", "https://607c5dc4c1541a604b6a-f45dce0462984165c96c36581d3ab586.ssl.cf1.rackcdn.com/workcast-chem-1.0.4.min.js", array("jquery") );
+        wp_enqueue_script( "workcastchem10949", "https://fe6fb6b85d6334307b13-496a2897963cd528a3555dcf427cda5c.ssl.cf1.rackcdn.com/Embed/10949/9952486094509220/workcast-chem-10949-1078538760264033.js", array("jquery") );
+        wp_enqueue_script( "workcastchemtools", "https://607c5dc4c1541a604b6a-f45dce0462984165c96c36581d3ab586.ssl.cf1.rackcdn.com/workcast-chem-tools-1.0.1.min.js", array("jquery") );
+
+        wp_enqueue_style( "workcastembedcss0203182", "https://www.workcast.com/media/10949/9952486094509220/Documents/embed_css_0203182.css", false );
+      } // if
+    } // registerWorkCastStyles
+  } // StpInsertCustomCode
+
+  new StpInsertCustomCode();
+} // if
+
