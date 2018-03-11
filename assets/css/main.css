@@ -1,5 +1,9 @@
-@media screen and (max-width: 1281px) {
-  #workcast_embed_content #channelwidth {
-    margin: 20px 0px 0px 25px !important;
-  }
+/* Adjusts the positioning of the rows. */
+#workcast_embed_content #channelwidth {
+  margin: 20px 0px 0px 20px !important;
+}
+
+/* Adjusts the navigation radio buttons. */
+#workcast_embed_content .navi {
+  width: 80%;
 }
