@@ -25,24 +25,20 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-} // if
+if ( ! defined( 'WPINC' ) ) { die; }
 
 if (!class_exists("StpInsertCustomCode")) {
   class StpInsertCustomCode {
-    function __construct() {
-      add_action( 'wp_enqueue_scripts', array($this, "registerWorkCastStyles") );
-      add_action( 'wp_enqueue_scripts', array($this, "registerCustomCodes") );
+    function __construct($postID) {
+      add_action("wp_enqueue_scripts", array($this, "registerWorkCastStyles"), 10, $postID);
+      add_action("wp_enqueue_scripts", array($this, "registerCustomCodes"));
     } // __construct()
 
     /*
      * Registers WorkCast to <head> to a specific post/page.
+     * @param {int} $postID - The post of page ID.
      */
-    function registerWorkCastStyles() {
-      // Change the post ID to the post needing WorkCast.
-      $postID = 2;
-
+    public function registerWorkCastStyles($postID) {
       if(is_page($postID)) {
         // Disable the built in jquery and use WorkCast preferred jquery.
         wp_deregister_script('jquery');
@@ -61,12 +57,12 @@ if (!class_exists("StpInsertCustomCode")) {
     /**
      * Registers modifications made to WorkCast HTML.
      */
-    function registerCustomCodes() {
+    public function registerCustomCodes() {
       wp_enqueue_style( "s2p-main", plugin_dir_url( __FILE__ ) . "assets/css/main.css", false );
     }
   } // StpInsertCustomCode
 
-  new StpInsertCustomCode();
+  new StpInsertCustomCode(2);
 } // if
 
 if (!class_exists("PageTemplater")) {
@@ -122,7 +118,7 @@ if (!class_exists("PageTemplater")) {
       );
       // Add your templates to this array.
       $this->templates = array(
-        "template-workcast.php" => "WorkCast Page",
+        "pages/template-workcast.php" => "WorkCast Page",
       );
     }
 
