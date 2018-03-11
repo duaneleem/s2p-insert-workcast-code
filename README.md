@@ -1,4 +1,4 @@
-# s2p-insert-workcast-code
+# Insert Workcast Code
 Adds WorkCast assets to WordPress.
 
 This plugin does the following:
