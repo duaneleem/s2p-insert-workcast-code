@@ -8,5 +8,7 @@ This plugin does the following:
 WorkCast has a specific jquery version that needs to be loaded into the header.  This WordPress plugin will do this.
 
 # Credits
+The following algorithms have contributed to the development of this plugin.
 - [Header and Footer Scripts](https://github.com/anandkumar/header-and-footer-scripts)
 - [WordPress Page Templater by WPExplorer.com](https://github.com/wpexplorer/page-templater)
+- [WordPress.com Codex](https://codex.wordpress.org/)
