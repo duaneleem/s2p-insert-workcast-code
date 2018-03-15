@@ -4,7 +4,15 @@
  * Description: WorkCast default template.
  */
 
+/* ================================================================================
+  WordPress Post Fields | Content
+================================================================================ */
+$objThePost = get_post();
+
 get_header(); ?>
+
+<!-- TODO: WP Editor Contents -->
+<?php echo apply_filters('the_content', $objThePost->post_content); ?>
 
 <!-- Does NOT work. Reverting to CloudFront alternative. -->
 <!-- <iframe src="<?php echo plugin_dir_url( __FILE__ ) . '../assets/html/workcast.html' ?>" class="workcast-iframe">Your browser is not supported.</iframe> -->
