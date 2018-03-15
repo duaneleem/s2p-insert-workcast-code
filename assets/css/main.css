@@ -5,8 +5,12 @@
   border: 0;
 }
 
-/* TODO: Style main workcast section. */
-#workcast-main { }
+/* Style main workcast section. */
+#workcast-wp-main {
+  width: 100%;
+}
 
 /* TODO: Style WorkCast iframe container. */
-#section-workcast-iframe { }
+#section-workcast-iframe {
+  width: 100%;
+}

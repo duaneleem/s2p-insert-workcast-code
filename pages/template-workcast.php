@@ -12,8 +12,8 @@ $objThePost = get_post();
 get_header(); ?>
 
 <!-- TODO: WP Editor Contents -->
-<section id="workcast-main">
-  <?php echo apply_filters('the_content', $objThePost->post_content); ?><?php echo apply_filters('the_content', $objThePost->post_content); ?>
+<section id="workcast-wp-main">
+  <?php echo apply_filters('the_content', $objThePost->post_content); ?>
 </section>
 
 <!-- Modify the S3 files to change the look of this page. -->
