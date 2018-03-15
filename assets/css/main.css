@@ -1,5 +1,12 @@
+/* Determines the size of the iFrame. */
 .workcast-iframe {
   width: 100%;
   height: 2400px;
   border: 0;
 }
+
+/* TODO: Style main workcast section. */
+#workcast-main { }
+
+/* TODO: Style WorkCast iframe container. */
+#section-workcast-iframe { }
